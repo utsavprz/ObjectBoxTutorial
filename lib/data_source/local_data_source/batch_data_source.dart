@@ -14,7 +14,7 @@ class BatchDataSource{
     }
   }
 
-  Future<List> getStudent(Batch batch) async {
+  Future<List<Batch>> getBatch() async {
     try {
       return objectBoxInstance.getAllBatch();
     } catch (e) {
