@@ -1,0 +1,91 @@
+{
+  "_note1": "KEEP THIS FILE! Check it into a version control system (VCS) like git.",
+  "_note2": "ObjectBox manages crucial IDs for your object model. See docs for details.",
+  "_note3": "If you have VCS merge conflicts, you must resolve them according to ObjectBox docs.",
+  "entities": [
+    {
+      "id": "1:5592860743342415820",
+      "lastPropertyId": "2:7289702791759786617",
+      "name": "Batch",
+      "properties": [
+        {
+          "id": "1:7107053874489373508",
+          "name": "batchId",
+          "type": 6,
+          "flags": 129
+        },
+        {
+          "id": "2:7289702791759786617",
+          "name": "batchName",
+          "type": 9
+        }
+      ],
+      "relations": []
+    },
+    {
+      "id": "2:3967783197032251044",
+      "lastPropertyId": "6:8124280144064370616",
+      "name": "Student",
+      "properties": [
+        {
+          "id": "1:7848631383761874218",
+          "name": "stdId",
+          "type": 6,
+          "flags": 129
+        },
+        {
+          "id": "2:2890212156598748534",
+          "name": "fname",
+          "type": 9
+        },
+        {
+          "id": "3:9062270471875415453",
+          "name": "lname",
+          "type": 9
+        },
+        {
+          "id": "4:8627077757308028702",
+          "name": "username",
+          "type": 9
+        },
+        {
+          "id": "5:7695502489433750341",
+          "name": "password",
+          "type": 9
+        },
+        {
+          "id": "6:8124280144064370616",
+          "name": "batchId",
+          "type": 11,
+          "flags": 520,
+          "indexId": "1:7240145828075356865",
+          "relationTarget": "Batch"
+        }
+      ],
+      "relations": []
+    }
+  ],
+  "lastEntityId": "4:436844430367801499",
+  "lastIndexId": "2:6966801992723529111",
+  "lastRelationId": "0:0",
+  "lastSequenceId": "0:0",
+  "modelVersion": 5,
+  "modelVersionParserMinimum": 5,
+  "retiredEntityUids": [
+    7473226156448088330,
+    436844430367801499
+  ],
+  "retiredIndexUids": [],
+  "retiredPropertyUids": [
+    1513015400295816225,
+    1431767240073842017,
+    1243178686480866321,
+    2260346158630874186,
+    4187649245291852326,
+    7884660882228614522,
+    2539054991122638373,
+    2722544181382710830
+  ],
+  "retiredRelationUids": [],
+  "version": 1
+}
