@@ -24,9 +24,13 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
   _showMessage(int status) {
     if (status > 0) {
-      MotionToast.success(description: Text('Studnet added'),).show(context);
+      MotionToast.success(
+        description: const Text('Studnet added'),
+      ).show(context);
+    } else {
+      MotionToast.error(description: const Text('Error in adding student'))
+          .show(context);
     }
-
   }
 
   _saveStudent() async {
@@ -156,7 +160,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     width: double.infinity,
                     child: ElevatedButton(
                       onPressed: () {
-                        if (_key.currentState!.validate()) {}
+                        if (_key.currentState!.validate()) {
+                          _saveStudent();
+                        }
                       },
                       child: const Text(
                         'Register',
