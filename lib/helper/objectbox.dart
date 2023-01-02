@@ -1,4 +1,5 @@
 import 'package:batch_student_starter/model/batch.dart';
+import 'package:batch_student_starter/model/course.dart';
 import 'package:batch_student_starter/model/student.dart';
 import 'package:path_provider/path_provider.dart';
 
@@ -9,13 +10,16 @@ class ObjectBoxInstance {
   late final Store _store;
   late final Box<Batch> _batch;
   late final Box<Student> _student;
+  late final Box<Course> _course;
 
   //constructors
   ObjectBoxInstance(this._store) {
     _batch = Box<Batch>(_store);
     _student = Box<Student>(_store);
+    _course = Box<Course>(_store);
 
-    insertBaches();
+    insertBatches();
+    insertCourses();
   }
 //initalization of object box
 
@@ -39,7 +43,7 @@ class ObjectBoxInstance {
     return _batch.getAll();
   }
 
-  void insertBaches() {
+  void insertBatches() {
     List<Batch> lstBatches = getAllBatch();
     if (lstBatches.isEmpty) {
       addBatch(Batch('29-A'));
@@ -56,5 +60,24 @@ class ObjectBoxInstance {
 
   List<Student> getAllStudent() {
     return _student.getAll();
+  }
+
+  //--------Course Queries--------
+  int addCourse(Course course) {
+    return _course.put(course);
+  }
+
+  List<Course> getAllCourse() {
+    return _course.getAll();
+  }
+
+  void insertCourses() {
+    List<Course> lstCourses = getAllCourse();
+    if (lstCourses.isEmpty) {
+      addCourse(Course('Mobile Development'));
+      addCourse(Course('Web API'));
+      addCourse(Course('Design Thinking'));
+      addCourse(Course('Data Analysis'));
+    }
   }
 }

@@ -14,7 +14,7 @@ class RegisterScreen extends StatefulWidget {
 }
 
 class _RegisterScreenState extends State<RegisterScreen> {
-  // final List<Batch> _lstBatches = [];
+  List<Batch> _lstBatches = [];
 
   var _dropDownValue;
 
@@ -35,6 +35,16 @@ class _RegisterScreenState extends State<RegisterScreen> {
     }
   }
 
+  @override
+  void initState() {
+    getBatches();
+    super.initState();
+  }
+
+  getBatches() async {
+    _lstBatches = await BatchDataSource().getBatch();
+  }
+
   _saveStudent() async {
     Student student = Student(
       _fnameController.text,
@@ -42,6 +52,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
       _usernameController.text,
       _passwordController.text,
     );
+    final batch = _lstBatches
+        .firstWhere((element) => element.batchName == _dropDownValue);
+
+    student.batch.target = batch;
 
     int status = await StudentRepositoryImpl().addStudent(student);
     _showMessage(status);
