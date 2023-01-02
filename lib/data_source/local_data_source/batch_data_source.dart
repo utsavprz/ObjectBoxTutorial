@@ -3,7 +3,7 @@ import 'package:batch_student_starter/model/batch.dart';
 
 import '../../state/objectbox_state.dart';
 
-class BatchDataSource{
+class BatchDataSource {
   ObjectBoxInstance get objectBoxInstance => ObjectBoxState.objectBoxInstance!;
 
   Future<int> addBatch(Batch batch) async {
